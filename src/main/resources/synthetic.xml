@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.xebialabs.com/deployit/synthetic"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+
+    <type type="datical.Server" extends="udm.BaseContainer">
+        <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true" />
+        <property name="home" description="Home directory where the hammer app can be found."/>
+    </type>
+
+    <type type="datical.DeployedChangeSet" extends="udm.BaseDeployedArtifact"
+          deployable-type="datical.ChangeSet" container-type="datical.Server"
+          description="Datical changeset">
+        <generate-deployable type="datical.ChangeSet" extends="udm.BaseDeployableFileArtifact"/>
+    </type>
+
+
+</synthetic>
+

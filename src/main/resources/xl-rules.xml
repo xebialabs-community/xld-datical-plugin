@@ -1,0 +1,43 @@
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<rules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.xebialabs.com/xl-deploy/xl-rules" >
+
+    <rule name="datical.DeployedChangeSet.CREATE" scope="deployed">
+        <conditions>
+            <type>datical.DeployedChangeSet</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+        </conditions>
+        <steps>
+            <os-script>
+                <description expression="true">"Deploy datical %s" % deployed.name</description>
+                <script>datical/datical_deploy</script>
+                <order>60</order>
+            </os-script>
+        </steps>
+    </rule>
+
+
+    <rule name="datical.DeployedChangeSet.DESTROY" scope="deployed">
+        <conditions>
+            <type>datical.DeployedChangeSet</type>
+            <operation>DESTROY</operation>
+        </conditions>
+        <steps>
+            <os-script>
+                <description expression="true">"Undeploy datical %s" % previousDeployed.name</description>
+                <script>datical/datical_undeploy</script>
+                <order>40</order>
+            </os-script>
+        </steps>
+    </rule>
+
+
+
+</rules>

@@ -1,0 +1,32 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+plugins {
+    id "com.github.hierynomus.license" version "0.12.1"
+    id "com.xebialabs.xldp" version "1.0.5"
+    id "com.xebialabs.xld.docker" version "1.0.11"
+}
+
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+xldDocker {
+    version = '5.5.3.1'
+}
+
+
+version="1.0.0"
+
+processResources.configure {
+    filter ReplaceTokens, tokens: [
+            'project.version': version.toString(),
+            'project.name': rootProject.name
+    ]
+}
+
+
+license {
+    header rootProject.file('src/main/license/xebialabs_community.license')
+    strictCheck true
+}
