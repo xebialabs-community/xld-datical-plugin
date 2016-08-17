@@ -13,13 +13,16 @@
 
     <type type="datical.Server" extends="udm.BaseContainer">
         <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true" />
-        <property name="home" description="Home directory where the hammer app can be found."/>
+        <property name="home" label="Datical DB Command" description="Fully qualified location of Datical DB CLI command. (e.g., C:\DaticalDB\repl\hammer.bat or /opt/DaticalDB/hammer)."/>
+        <property name="driverLocation" label="Database JDBC Drivers Directory" description="Absolute Path on Build Server to Database Drivers used by Datical DB."/>
     </type>
 
-    <type type="datical.DeployedChangeSet" extends="udm.BaseDeployedArtifact"
-          deployable-type="datical.ChangeSet" container-type="datical.Server"
-          description="Datical changeset">
-        <generate-deployable type="datical.ChangeSet" extends="udm.BaseDeployableFileArtifact"/>
+    <type type="datical.DeployedProject" extends="udm.BaseDeployedArtifact"
+          deployable-type="datical.Project" container-type="datical.Server"
+          description="Datical project">
+        <generate-deployable type="datical.Project" extends="udm.BaseDeployableArchiveArtifact"/>
+        <property name="targetPath" label="Project Target Path" description="Temporary path where the project should be extracted" />
+        <property name="envName" label="Environment Name" description="Environment name to be used for forecast and deploy (e.g. XE)" />
     </type>
 
 

@@ -18,13 +18,14 @@
       <orchestrator />
       <applicationDependencies />
     </udm.DeploymentPackage>
-    <datical.ChangeSet id="Applications/datical app/1.0.0/changeset" created-by="admin" created-at="2016-08-12T02:40:21.739+0000" last-modified-by="admin" last-modified-at="2016-08-12T02:40:21.739+0000" file="Applications/datical app/1.0.0/changeset/Screenshot from 2016-08-09 14-01-38.png">
+    <datical.Project id="Applications/datical app/1.0.0/Xebia" created-by="admin" created-at="2016-08-12T02:40:21.739+0000" last-modified-by="admin" last-modified-at="2016-08-12T02:40:21.739+0000" file="Applications/datical app/1.0.0/Xebia/Xebia.zip">
       <tags />
       <scanPlaceholders>true</scanPlaceholders>
       <placeholders />
-      <checksum>113d9e470c4613e6e17c4cd00ef8209c082b7376</checksum>
-      <fileUri>jcr:Screenshot+from+2016-08-09+14-01-38.png</fileUri>
-    </datical.ChangeSet>
+      <fileUri>jcr:Xebia.zip</fileUri>
+      <targetPath>/tmp/Xebia</targetPath>
+      <envName>XE</envName>
+    </datical.Project>
     <udm.Application id="Applications/datical app" created-by="admin" created-at="2016-08-12T02:39:41.698+0000" last-modified-by="admin" last-modified-at="2016-08-12T02:39:52.981+0000">
       <lastVersion>1.0.0</lastVersion>
     </udm.Application>
@@ -46,7 +47,8 @@
     </overthere.SshHost>
     <datical.Server id="Infrastructure/datical host/datical server" created-by="admin" created-at="2016-08-12T02:39:08.879+0000" last-modified-by="admin" last-modified-at="2016-08-12T02:39:08.879+0000">
       <tags />
-      <home>/home/datical/DaticalDB/repl</home>
+      <home>/home/datical/DaticalDB/repl/hammer-bin</home>
+      <driverLocation>/home/datical/DaticalDB/plugins</driverLocation>
     </datical.Server>
   </xl:exported-configuration-items>
 </xl:export>
