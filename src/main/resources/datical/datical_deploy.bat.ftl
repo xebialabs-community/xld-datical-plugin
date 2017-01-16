@@ -5,3 +5,4 @@
     FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 
 -->
+${deployed.container.home} -p ${deployed.targetPath} deploy ${deployed.envName}
