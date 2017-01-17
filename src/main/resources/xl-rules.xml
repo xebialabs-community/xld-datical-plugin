@@ -55,9 +55,35 @@
         </conditions>
         <steps>
             <os-script>
+                <description expression="true">"Upload project for datical [%s]" % previousDeployed.name</description>
+                <script>datical/datical_upload</script>
+                <order>40</order>
+                <freemarker-context>
+                    <deployed expression="true">previousDeployed</deployed>
+                </freemarker-context>
+            </os-script>
+            <os-script>
+                <description expression="true">"Status for datical project [%s]" % previousDeployed.name</description>
+                <script>datical/datical_status</script>
+                <order>41</order>
+                <upload-artifacts>false</upload-artifacts>
+                <freemarker-context>
+                    <deployed expression="true">previousDeployed</deployed>
+                </freemarker-context>
+            </os-script>
+            <os-script>
                 <description expression="true">"Undeploy datical %s" % previousDeployed.name</description>
                 <script>datical/datical_undeploy</script>
-                <order>40</order>
+                <order>42</order>
+            </os-script>
+            <os-script>
+                <description expression="true">"Remove project [%s] from server" % previousDeployed.name</description>
+                <script>datical/datical_remove</script>
+                <order>43</order>
+                <upload-artifacts>false</upload-artifacts>
+                <freemarker-context>
+                    <deployed expression="true">previousDeployed</deployed>
+                </freemarker-context>
             </os-script>
         </steps>
     </rule>

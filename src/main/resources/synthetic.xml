@@ -15,6 +15,11 @@
         <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true" />
         <property name="home" label="Datical DB Command" description="Fully qualified location of Datical DB CLI command. (e.g., C:\DaticalDB\repl\hammer.bat or /opt/DaticalDB/hammer)."/>
         <property name="driverLocation" label="Database JDBC Drivers Directory" description="Absolute Path on Build Server to Database Drivers used by Datical DB."/>
+        <method   name="check"
+                  delegate="shellScript"
+                  host="${thisCi.host}"
+                  script="datical/check_hammer" />
+
     </type>
 
     <type type="datical.DeployedProject" extends="udm.BaseDeployedArtifact"
@@ -23,6 +28,7 @@
         <generate-deployable type="datical.Project" extends="udm.BaseDeployableArchiveArtifact"/>
         <property name="targetPath" label="Project Target Path" description="Temporary path where the project should be extracted" />
         <property name="envName" label="Environment Name" description="Environment name to be used for forecast and deploy (e.g. XE)" />
+        <property name="changeids" label="Change Ids" description="The id and (optionally) author of a change set. Only used during destroy operation. If not specified, lastdeploy will be used." kind="list_of_string" required="false" />
     </type>
 
 
