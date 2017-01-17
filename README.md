@@ -16,6 +16,21 @@ This is the integration between XL Deploy and Datical.
 [xld-datical-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-datical-plugin
 
 
+# Overview #
+
+The xld-datical-plugin is a XL Deploy plugin that allows to deploy, rollback, ... datical projects using XL Deploy.
+
+## Installation ##
+
+Place the [latest](https://github.com/xebialabs-community/xld-datical-plugin/releases) released version under the `plugins` dir.
+
+This plugin (1.x.x+) requires XLD 5.1+
+
+## Types ##
+
++ `datical.Server`
++ `datical.DeployedProject`
+
 # References #
 1. [Datical main website](http://www.datical.com/)
 
