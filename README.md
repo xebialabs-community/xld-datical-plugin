@@ -32,7 +32,7 @@ This plugin (1.x.x+) requires XLD 5.1+
     + `host`: the `overthere.Host` that will be used to execute the `hammer` cli tool
     + `home`: Fully qualified location of Datical DB CLI command. (e.g., `C:\DaticalDB\repl\hammer.bat` or `/opt/DaticalDB/hammer`).
     + `driverLocation`: Absolute Path on Build Server to Database Drivers used by Datical DB.
-+ `datical.DeployedProject`
++ `datical.Project`
     + `targetPath`: Temporary path where the project should be extracted
     + `envName`: Environment name to be used for forecast and deploy (e.g. XE)
     + `changeids`: The id and (optionally) author of a change set. Only used during destroy operation. If not specified, lastdeploy will be used.
