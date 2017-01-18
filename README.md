@@ -2,7 +2,7 @@
 
 This is the integration between XL Deploy and Datical.
 
-# CI status #
+## CI status ##
 
 [![Build Status][xld-datical-travis-image] ][xld-datical-travis-url]
 [![Codacy Badge][xld-datical-codacy-image] ][xld-datical-codacy-url]
@@ -16,7 +16,7 @@ This is the integration between XL Deploy and Datical.
 [xld-datical-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-datical-plugin
 
 
-# Overview #
+## Overview ##
 
 The xld-datical-plugin is a XL Deploy plugin that allows to deploy, rollback, ... datical projects using XL Deploy.
 
@@ -28,10 +28,16 @@ This plugin (1.x.x+) requires XLD 5.1+
 
 ## Types ##
 
-+ `datical.Server`
++ `datical.Server`: A `udm.BaseContainer` used to deploy datical projects.
+    + `host`: the `overthere.Host` that will be used to execute the `hammer` cli tool
+    + `home`: Fully qualified location of Datical DB CLI command. (e.g., `C:\DaticalDB\repl\hammer.bat` or `/opt/DaticalDB/hammer`).
+    + `driverLocation`: Absolute Path on Build Server to Database Drivers used by Datical DB.
 + `datical.DeployedProject`
+    + `targetPath`: Temporary path where the project should be extracted
+    + `envName`: Environment name to be used for forecast and deploy (e.g. XE)
+    + `changeids`: The id and (optionally) author of a change set. Only used during destroy operation. If not specified, lastdeploy will be used.
 
-# References #
+## References ##
 1. [Datical main website](http://www.datical.com/)
 
 
