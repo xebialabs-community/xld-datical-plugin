@@ -19,6 +19,9 @@
                 <description expression="true">"Upload project for datical [%s]" % deployed.name</description>
                 <script>datical/datical_upload</script>
                 <order>60</order>
+                <classpath-resources>
+                    <value>7zip/7z1604-x64.exe</value>
+                </classpath-resources>
             </os-script>
             <os-script>
                 <description expression="true">"Status for datical project [%s]" % deployed.name</description>
