@@ -8,7 +8,7 @@
 <#if !deployed.container.zipLocation?has_content>
     mkdir C:\\Temp\\7zip
     7zip\7z1604-x64.exe /S /D=C:\\Temp\\7zip
-    <#assign ziploc="C:\Temp\7zip\7z.exe"/>
+    <#assign ziploc="C:\\Temp\\7zip\\7z.exe"/>
 <#else>
     <#assign ziploc=deployed.container.zipLocation/>
 </#if>
