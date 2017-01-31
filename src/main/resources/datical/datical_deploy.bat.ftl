@@ -5,4 +5,4 @@
     FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 
 -->
-${deployed.container.home} -p ${deployed.targetPath} deploy ${deployed.envName}
+${deployed.container.home} -p ${deployed.targetPath} deploy ${deployed.envName} <#if deployed.labels?has_content>--labels "${deployed.labels}"</#if>

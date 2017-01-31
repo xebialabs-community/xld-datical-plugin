@@ -37,6 +37,9 @@
         <property name="changeids" label="Change Ids"
                   description="The id and (optionally) author of a change set. Only used during destroy operation. If not specified, lastdeploy will be used."
                   kind="list_of_string" required="false"/>
+        <property name="labels" label="Labels"
+                  description="The labels to be used during forecast and deploy. For example: `pipeline1 AND test`"
+                  kind="string" required="false"/>
     </type>
 
 
