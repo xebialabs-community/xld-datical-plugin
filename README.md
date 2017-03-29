@@ -4,16 +4,20 @@ This is the integration between XL Deploy and Datical.
 
 ## CI status ##
 
-[![Build Status][xld-datical-travis-image] ][xld-datical-travis-url]
-[![Codacy Badge][xld-datical-codacy-image] ][xld-datical-codacy-url]
-[![Code Climate][xld-datical-code-climate-image] ][xld-datical-code-climate-url]
+[![Build Status][xld-datical-plugin-travis-image] ][xld-datical-plugin-travis-url]
+[![Codacy Badge][xld-datical-plugin-codacy-image] ][xld-datical-plugin-codacy-url]
+[![Code Climate][xld-datical-plugin-code-climate-image] ][xld-datical-plugin-code-climate-url]
+[![License: MIT][xlr-datical-plugin-license-image] ][xlr-datical-plugin-license-url]
 
-[xld-datical-travis-image]: https://travis-ci.org/xebialabs-community/xld-datical-plugin.svg?branch=master
-[xld-datical-travis-url]: https://travis-ci.org/xebialabs-community/xld-datical-plugin
-[xld-datical-codacy-image]: https://api.codacy.com/project/badge/Grade/7e66235d52e3447c890c7c2e0ea9edb4
-[xld-datical-codacy-url]: https://www.codacy.com/app/joris-dewinne/xld-datical-plugin
-[xld-datical-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xld-datical-plugin/badges/gpa.svg
-[xld-datical-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-datical-plugin
+[xld-datical-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xld-datical-plugin.svg?branch=master
+[xld-datical-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xld-datical-plugin
+[xld-datical-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/7e66235d52e3447c890c7c2e0ea9edb4
+[xld-datical-plugin-codacy-url]: https://www.codacy.com/app/joris-dewinne/xld-datical-plugin
+[xld-datical-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xld-datical-plugin/badges/gpa.svg
+[xld-datical-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-datical-plugin
+[xlr-datical-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+[xlr-datical-plugin-license-url]: https://opensource.org/licenses/MIT
+
 
 
 ## Overview ##
