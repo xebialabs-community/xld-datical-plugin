@@ -10,8 +10,8 @@
 
 -->
 
-<rules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.xebialabs.com/xl-deploy/xl-rules" >
+<rules
+        xmlns="http://www.xebialabs.com/xl-deploy/xl-rules">
 
     <rule name="datical.DeployedProject.CREATE" scope="deployed">
         <conditions>
@@ -28,28 +28,52 @@
                     <value>7zip/7z1604-x64.exe</value>
                 </classpath-resources>
             </os-script>
-            <os-script>
-                <description expression="true">"Status for datical project [%s]" % deployed.name</description>
-                <script>datical/datical_status</script>
-                <order>61</order>
-                <upload-artifacts>false</upload-artifacts>
-            </os-script>
-            <os-script>
-                <description expression="true">"Forecast for datical project [%s]" % deployed.name</description>
-                <script>datical/datical_forecast</script>
-                <order>62</order>
-                <upload-artifacts>false</upload-artifacts>
-            </os-script>
+
             <os-script>
                 <description expression="true">"Deploy datical project [%s]" % deployed.name</description>
                 <script>datical/datical_deploy</script>
                 <order>63</order>
                 <upload-artifacts>false</upload-artifacts>
             </os-script>
+
             <os-script>
                 <description expression="true">"Remove project [%s] from server" % deployed.name</description>
                 <script>datical/datical_remove</script>
                 <order>64</order>
+                <upload-artifacts>false</upload-artifacts>
+            </os-script>
+        </steps>
+    </rule>
+
+    <rule name="datical.DeployedProject.Status.CREATE" scope="deployed">
+        <conditions>
+            <type>datical.DeployedProject</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+            <expression>deployed.runStatus</expression>
+        </conditions>
+        <steps>
+            <os-script>
+                <description expression="true">"Status for datical project [%s]" % deployed.name</description>
+                <script>datical/datical_status</script>
+                <order>61</order>
+                <upload-artifacts>false</upload-artifacts>
+            </os-script>
+        </steps>
+    </rule>
+
+    <rule name="datical.DeployedProject.Forecast.CREATE" scope="deployed">
+        <conditions>
+            <type>datical.DeployedProject</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+            <expression>deployed.runForecast</expression>
+        </conditions>
+        <steps>
+            <os-script>
+                <description expression="true">"Forecast for datical project [%s]" % deployed.name</description>
+                <script>datical/datical_forecast</script>
+                <order>62</order>
                 <upload-artifacts>false</upload-artifacts>
             </os-script>
         </steps>
@@ -70,20 +94,13 @@
                     <deployed expression="true">previousDeployed</deployed>
                 </freemarker-context>
             </os-script>
-            <os-script>
-                <description expression="true">"Status for datical project [%s]" % previousDeployed.name</description>
-                <script>datical/datical_status</script>
-                <order>41</order>
-                <upload-artifacts>false</upload-artifacts>
-                <freemarker-context>
-                    <deployed expression="true">previousDeployed</deployed>
-                </freemarker-context>
-            </os-script>
+
             <os-script>
                 <description expression="true">"Undeploy datical %s" % previousDeployed.name</description>
                 <script>datical/datical_undeploy</script>
                 <order>42</order>
             </os-script>
+
             <os-script>
                 <description expression="true">"Remove project [%s] from server" % previousDeployed.name</description>
                 <script>datical/datical_remove</script>
@@ -96,6 +113,24 @@
         </steps>
     </rule>
 
+    <rule name="datical.DeployedProject.Status.DESTROY" scope="deployed">
+        <conditions>
+            <type>datical.DeployedProject</type>
+            <operation>DESTROY</operation>
+            <expression>previousDeployed.runStatus</expression>
+        </conditions>
+        <steps>
+            <os-script>
+                <description expression="true">"Status for datical project [%s]" % previousDeployed.name</description>
+                <script>datical/datical_status</script>
+                <order>41</order>
+                <upload-artifacts>false</upload-artifacts>
+                <freemarker-context>
+                    <deployed expression="true">previousDeployed</deployed>
+                </freemarker-context>
+            </os-script>
+        </steps>
+    </rule>
 
 
 </rules>

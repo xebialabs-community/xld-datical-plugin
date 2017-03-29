@@ -10,4 +10,4 @@
 
 -->
 
-${deployed.container.home} -p ${deployed.targetPath} deploy ${deployed.envName} <#if deployed.labels?has_content>--labels "${deployed.labels}"</#if>
+${deployed.container.home} -p ${deployed.targetPath} deploy ${deployed.envName} <#if deployed.labels?has_content>--labels="${deployed.labels}"</#if> <#if deployed.reportsLocation?has_content>--report="${deployed.reportsLocation}"</#if>
