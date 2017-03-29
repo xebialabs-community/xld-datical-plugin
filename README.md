@@ -42,6 +42,9 @@ This plugin (1.x.x+) requires XLD 5.1+
     + `envName`: Environment name to be used for forecast and deploy (e.g. XE)
     + `changeids`: The id and (optionally) author of a change set. Only used during destroy operation. If not specified, lastdeploy will be used.
     + `labels`:  The labels to be used during forecast and deploy. For example: `pipeline1 AND test`
+    + `reportsLocation`: When set, deploy report will be written to the directory specified. Report is written to the 'Reports' directory by default.
+    + `runStatus`: If true, a status step will be added when deploying
+    + `runForecast`: If true, a forecast step will be added when deploying
 
 ## References ##
 1. [Datical main website](http://www.datical.com/)
