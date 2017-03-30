@@ -10,4 +10,5 @@
 
 -->
 
-${deployed.container.home} <#if deployed.container.username?has_content>-un ${deployed.container.username} -pw ${deployed.container.password}</#if> -p ${deployed.targetPath} statusDetails ${deployed.envName}
+<#include "/datical/datical_generic.ftl">
+${login} -p ${deployed.targetPath} statusDetails ${deployed.envName}
