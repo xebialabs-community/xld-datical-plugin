@@ -24,6 +24,10 @@
                   description="Absolute Path on Build Server to Database Drivers used by Datical DB."/>
         <property name="zipLocation" label="7 zip location" required="false"
                   description="Absolute Path to 7zip.exe (only applicable on Windows). If provided this one will be used, else the prepackaged one will be used."/>
+        <property name="username" label="Username" required="false" category="Credentials"
+                  description="Database username when the project has the 'Specify database credentials at operation run time' option set." />
+        <property name="password" label="Password" required="false" category="Credentials" password="true"
+                  description="Database password when the project has the 'Specify database credentials at operation run time' option set." />
         <method name="check"
                 delegate="shellScript"
                 host="${thisCi.host}"

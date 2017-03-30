@@ -12,8 +12,8 @@
 
 <#if previousDeployed.changeids?size gt 0>
     <#list previousDeployed.changeids as changeid>
-    ${previousDeployed.container.home} -p ${previousDeployed.targetPath} rollback ${previousDeployed.envName} changeid:id=${changeid}
+    ${previousDeployed.container.home} <#if previousDeployed.container.username?has_content>-un ${previousDeployed.container.username} -pw ${previousDeployed.container.password}</#if> -p ${previousDeployed.targetPath} rollback ${previousDeployed.envName} changeid:id=${changeid}
     </#list>
 <#else>
-${previousDeployed.container.home} -p ${previousDeployed.targetPath} rollback ${previousDeployed.envName} lastdeploy
+${previousDeployed.container.home} <#if previousDeployed.container.username?has_content>-un ${previousDeployed.container.username} -pw ${previousDeployed.container.password}</#if> -p ${previousDeployed.targetPath} rollback ${previousDeployed.envName} lastdeploy
 </#if>

@@ -10,4 +10,4 @@
 
 -->
 
-${deployed.container.home} -p ${deployed.targetPath} statusDetails ${deployed.envName}
+${deployed.container.home} <#if deployed.container.username?has_content>-un ${deployed.container.username} -pw ${deployed.container.password}</#if> -p ${deployed.targetPath} statusDetails ${deployed.envName}

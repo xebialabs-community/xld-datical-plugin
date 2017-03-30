@@ -10,4 +10,4 @@
 
 -->
 
-${deployed.container.home} -p ${deployed.targetPath} deploy ${deployed.envName} <#if deployed.labels?has_content>--labels="${deployed.labels}"</#if> <#if deployed.reportsLocation?has_content>--report="${deployed.reportsLocation}"</#if>
+${deployed.container.home} <#if deployed.container.username?has_content>-un ${deployed.container.username} -pw ${deployed.container.password}</#if> -p ${deployed.targetPath} deploy ${deployed.envName} <#if deployed.labels?has_content>--labels="${deployed.labels}"</#if> <#if deployed.reportsLocation?has_content>--report="${deployed.reportsLocation}"</#if>
