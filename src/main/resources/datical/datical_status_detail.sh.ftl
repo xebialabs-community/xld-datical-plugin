@@ -11,4 +11,4 @@
 -->
 
 <#include "/datical/datical_generic.ftl">
-${login} -p ${deployed.targetPath} statusDetails ${deployed.envName}
+${login} -p ${deployed.targetPath} statusDetails ${environment}

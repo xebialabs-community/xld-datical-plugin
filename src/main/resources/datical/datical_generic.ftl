@@ -9,8 +9,12 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -->
-<#assign login>${deployed.container.home} <#if deployed.container.username?has_content>-un ${deployed.envName}:::${deployed.container.username} -pw ${deployed.envName}:::${deployed.container.password}</#if></#assign>
+<#assign environment><#if deployed.container.envName?has_content>${deployed.container.envName}<#else>${deployed.envName}</#if></#assign>
+
+<#assign login>${deployed.container.home} <#if deployed.container.username?has_content>-un ${environment}:::${deployed.container.username} -pw ${environment}:::${deployed.container.password}</#if></#assign>
 
 <#assign labels><#if deployed.labels?has_content>--labels="${deployed.labels}"</#if></#assign>
 
 <#assign reports><#if deployed.reportsLocation?has_content>--report="${deployed.reportsLocation}"</#if></#assign>
+
+

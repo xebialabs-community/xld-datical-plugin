@@ -9,11 +9,8 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -->
-<#include "/datical/datical_generic_undeploy.ftl">
-<#if previousDeployed.changeids?size gt 0>
-    <#list previousDeployed.changeids as changeid>
-    ${login} -p ${previousDeployed.targetPath} rollback ${environment} changeid:id=${changeid}
-    </#list>
-<#else>
-${login} -p ${previousDeployed.targetPath} rollback ${environment} lastdeploy
-</#if>
+<#assign environment><#if previousDeployed.container.envName?has_content>${previousDeployed.container.envName}<#else>${previousDeployed.envName}</#if></#assign>
+
+<#assign login>${previousDeployed.container.home} <#if previousDeployed.container.username?has_content>-un ${environment}:::${previousDeployed.container.username} -pw ${environment}:::${previousDeployed.container.password}</#if></#assign>
+
+
