@@ -52,7 +52,7 @@
         <property name="reportsLocation" label="Reports Location"
                   description="When set, deploy report will be written to the directory specified. Report is written to the 'Reports' directory by default."
                   kind="string" required="false"/>
-        <property name="runStatus" label="Run Status" description="If true, a status step will be added when deploying"
+        <property name="runStatus" label="Run Status Detail" description="If true, a status detail step will be added when deploying"
                   kind="boolean" default="true" required="false"/>
         <property name="runForecast" label="Run Forecast"
                   description="If true, a forecast step will be added when deploying" kind="boolean" default="true"
