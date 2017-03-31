@@ -19,7 +19,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
 
-version="1.5.2"
+version="1.6.0"
 
 processResources.configure {
     filter ReplaceTokens, tokens: [
