@@ -37,6 +37,7 @@ This plugin (1.x.x+) requires XLD 5.1+
     + `home`: Fully qualified location of Datical DB CLI command. (e.g., `C:\DaticalDB\repl\hammer.bat` or `/opt/DaticalDB/hammer`).
     + `driverLocation`: Absolute Path on Build Server to Database Drivers used by Datical DB.
     + `zipLocation`: Absolute Path to 7zip.exe (only applicable on Windows). If provided this one will be used, else the prepackaged one will be used.
+    + `envName`: Environment name to be used for forecast and deploy (e.g. XE). If defined on `datical.Server` level, this will be used. Else the deployed value will be used.
     + `username`: Database username when the project has the 'Specify database credentials at operation run time' option set.
     + `password`: Database password when the project has the 'Specify database credentials at operation run time' option set.
 + `datical.Project`
