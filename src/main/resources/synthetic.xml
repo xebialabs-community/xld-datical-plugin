@@ -60,6 +60,9 @@
         <property name="runForecast" label="Run Forecast"
                   description="If true, a forecast step will be added when deploying" kind="boolean" default="true"
                   required="false"/>
+        <property name="pipeline" label="Pipeline"
+                  description="When set, this is the pipeline which will be associated with the deployment for auditing purposes."
+                  required="false" />
     </type>
 
 
