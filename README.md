@@ -8,6 +8,8 @@ This is the integration between XL Deploy and Datical.
 [![Codacy Badge][xld-datical-plugin-codacy-image] ][xld-datical-plugin-codacy-url]
 [![Code Climate][xld-datical-plugin-code-climate-image] ][xld-datical-plugin-code-climate-url]
 [![License: MIT][xlr-datical-plugin-license-image] ][xlr-datical-plugin-license-url]
+[![Github All Releases][xld-datical-plugin-downloads-image] ]()
+
 
 [xld-datical-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xld-datical-plugin.svg?branch=master
 [xld-datical-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xld-datical-plugin
@@ -17,6 +19,7 @@ This is the integration between XL Deploy and Datical.
 [xld-datical-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-datical-plugin
 [xlr-datical-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
 [xlr-datical-plugin-license-url]: https://opensource.org/licenses/MIT
+[xld-datical-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xld-datical-plugin/total.svg
 
 
 
@@ -48,6 +51,7 @@ This plugin (1.x.x+) requires XLD 5.1+
     + `reportsLocation`: When set, deploy report will be written to the directory specified. Report is written to the 'Reports' directory by default.
     + `runStatus`: If true, a status step will be added when deploying
     + `runForecast`: If true, a forecast step will be added when deploying
+    + `pipeline`: When set, this is the pipeline which will be associated with the deployment for auditing purposes.
 
 ## References ##
 1. [Datical main website](http://www.datical.com/)
