@@ -1,9 +1,5 @@
 # xld-datical-plugin
 
-This is the integration between XL Deploy and Datical.
-
-## CI status ##
-
 [![Build Status][xld-datical-plugin-travis-image] ][xld-datical-plugin-travis-url]
 [![Codacy Badge][xld-datical-plugin-codacy-image] ][xld-datical-plugin-codacy-url]
 [![Code Climate][xld-datical-plugin-code-climate-image] ][xld-datical-plugin-code-climate-url]
@@ -21,6 +17,8 @@ This is the integration between XL Deploy and Datical.
 [xlr-datical-plugin-license-url]: https://opensource.org/licenses/MIT
 [xld-datical-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xld-datical-plugin/total.svg
 
+
+This is the integration between XL Deploy and Datical.
 
 
 ## Overview ##
