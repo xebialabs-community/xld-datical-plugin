@@ -18,7 +18,7 @@
     <#assign ziploc=deployed.container.zipLocation/>
 </#if>
 
-${ziploc} x ${deployed.file.path} -o${deployed.targetPath}
+${ziploc} x ${deployed.file.path} -aoa -o${deployed.targetPath}
 <#if !deployed.container.zipLocation?has_content>
     rmdir /s /q C:\Temp\7zip
 </#if>
