@@ -78,7 +78,7 @@
         </steps>
     </rule>
 
-
+<!--
     <rule name="datical.DeployedProject.DESTROY" scope="deployed">
         <conditions>
             <type>datical.DeployedProject</type>
@@ -93,13 +93,11 @@
                     <deployed expression="true">previousDeployed</deployed>
                 </freemarker-context>
             </os-script>
-
             <os-script>
                 <description expression="true">"Undeploy datical %s" % previousDeployed.name</description>
                 <script>datical/datical_undeploy</script>
                 <order>42</order>
             </os-script>
-
             <os-script>
                 <description expression="true">"Remove project [%s] from server" % previousDeployed.name</description>
                 <script>datical/datical_remove</script>
@@ -111,6 +109,7 @@
             </os-script>
         </steps>
     </rule>
+-->
 
     <rule name="datical.DeployedProject.StatusDetail.DESTROY" scope="deployed">
         <conditions>
@@ -131,5 +130,20 @@
         </steps>
     </rule>
 
+	<rule name="datical.DeployedProject.StatusDetail.After.CREATE" scope="deployed">
+        <conditions>
+            <type>datical.DeployedProject</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+        </conditions>
+        <steps>
+            <os-script>
+                <description expression="true">"Refresh Datical Monitoring Console"</description>
+                <script>datical/daticalweb_status_refresh</script>
+                <order>63</order>
+                <upload-artifacts>false</upload-artifacts>
+            </os-script>
+        </steps>
+    </rule>
 
 </rules>

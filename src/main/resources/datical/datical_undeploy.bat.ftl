@@ -9,11 +9,23 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -->
+
+<#include "/datical/datical_credentials.bat.ftl">
 <#include "/datical/datical_generic_undeploy.ftl">
+${ddb_audit_user}
+${ddb_audit_pass}
+${ddb_user}
+${ddb_pass}
 <#if previousDeployed.changeids?size gt 0>
     <#list previousDeployed.changeids as changeid>
+	<#--
     ${login} -p ${previousDeployed.targetPath} rollback ${environment} changeid:id=${changeid}
+	-->
+    ${login_simple} -p ${previousDeployed.targetPath} rollback ${environment} changeid:id=${changeid}
     </#list>
 <#else>
+<#--
 ${login} -p ${previousDeployed.targetPath} rollback ${environment} lastdeploy
+-->
+${login_simple} -p ${previousDeployed.targetPath} rollback ${environment} lastdeploy
 </#if>

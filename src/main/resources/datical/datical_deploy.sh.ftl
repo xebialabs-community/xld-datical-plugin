@@ -10,4 +10,18 @@
 
 -->
 <#include "/datical/datical_generic.ftl">
+<#include "/datical/datical_credentials.sh.ftl">
+${ddb_audit_user}
+${ddb_audit_pass}
+${ddb_user}
+${ddb_pass}
+<#--
+echo DDB_USER=$DDB_USER
+echo DDB_PASS=$DDB_PASS
+echo DDB_AUDIT_USER=$DDB_AUDIT_USER
+echo DDB_AUDIT_PASS=$DDB_AUDIT_PASS
+-->
+<#--
 ${login} -p ${deployed.targetPath} deploy ${environment} ${labels} ${reports} ${pipeline}
+-->
+${login_simple} -p ${deployed.targetPath} deploy ${environment} ${labels} ${reports} ${pipeline}
