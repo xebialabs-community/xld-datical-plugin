@@ -9,16 +9,26 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -->
-<#assign environment><#if deployed.container.envName?has_content>${deployed.container.envName}<#else>${deployed.envName}</#if></#assign>
+<#include "/datical/datical_generic.ftl">
+<#include "/datical/datical_credentials.sh.ftl">
+${ddb_audit_user}
+${ddb_audit_pass}
+${ddb_user}
+${ddb_pass}
+<#--
+echo DDB_USER=$DDB_USER
+echo DDB_PASS=$DDB_PASS
+echo DDB_AUDIT_USER=$DDB_AUDIT_USER
+echo DDB_AUDIT_PASS=$DDB_AUDIT_PASS
+-->
+<#--
+${login} -p ${deployed.targetPath} statusDetails ${environment}
+-->
+echo "Refeshing status with Datical Management Console ..."
+if [ "${curl}" != "" ] && [ "${daticalweb}" != "" ]; then
+	${login_simple} -p ${deployed.targetPath} status ${environment}
+	${curl} --insecure --request POST https://${daticalweb}/service/reporting/qa/v1/audit-db/sync
+else
+	echo "INFO: curl Command Path not set. Or Datical Web Hostname not specified."
+fi
 
-<#assign login>${deployed.container.home} <#if deployed.container.username?has_content>-un ${environment}:::${deployed.container.username} -pw ${environment}:::${deployed.container.password}</#if></#assign>
-
-<#assign login_simple>${deployed.container.home} </#assign>
-
-<#assign labels><#if deployed.labels?has_content>--labels="${deployed.labels}"</#if></#assign>
-
-<#assign reports><#if deployed.reportsLocation?has_content>--report="${deployed.reportsLocation}"</#if></#assign>
-
-<#assign pipeline><#if deployed.pipeline?has_content>--pipeline="${deployed.pipeline}"</#if></#assign>
-
-<#assign curl><#if deployed.curl_path?has_content>"${deployed.curl_path} --insecure --request POST https://${deployed.daticalweb_host}/service/reporting/qa/v1/audit-db/sync"</#if></#assign>

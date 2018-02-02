@@ -25,11 +25,18 @@
                   description="Absolute Path to 7zip.exe (only applicable on Windows). If provided this one will be used, else the prepackaged one will be used."/>
         <property name="envName" label="Environment Name" required="false"
                   description="Environment name to be used for forecast and deploy (e.g. XE)"/>
-
         <property name="username" label="Username" required="false" category="Credentials"
                   description="Database username when the project has the 'Specify database credentials at operation run time' option set." />
         <property name="password" label="Password" required="false" category="Credentials" password="true"
                   description="Database password when the project has the 'Specify database credentials at operation run time' option set." />
+        <property name="audit_username" label="Audit Username" required="false" category="Credentials"
+                  description="Audit database username when the project has the 'Specify database credentials at operation run time' option set." />
+        <property name="audit_password" label="Audit Password" required="false" category="Credentials" password="true"
+                  description="Audit database password when the project has the 'Specify database credentials at operation run time' option set." />
+        <property name="curl_path" label="curl Command Path" required="false" 
+                  description="Fully qualified location of curl CLI command (e.g., C:\apps\Git\mingw64\bin\curl.exe). Required if Datical Web Hostname is specified." />
+        <property name="daticalweb_host" label="Datical Web Hostname" required="false" 
+                  description="The hostname for Datical Management Console (e.g., dmc.datical.net)." />
         <method name="check"
                 delegate="shellScript"
                 host="${thisCi.host}"
