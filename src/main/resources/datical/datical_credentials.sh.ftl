@@ -10,7 +10,7 @@
  
 -->
 
-<#assign ddb_audit_user><#if deployed.container.audit_username?has_content>export DDB_AUDIT_USER=${deployed.container.audit_username} > /dev/null</#if></#assign>
-<#assign ddb_audit_pass><#if deployed.container.audit_password?has_content>export DDB_AUDIT_PASS=${deployed.container.audit_password} > /dev/null</#if></#assign>
-<#assign ddb_user><#if deployed.container.username?has_content>export DDB_USER=${deployed.container.username} > /dev/null</#if></#assign>
-<#assign ddb_pass><#if deployed.container.password?has_content>export DDB_PASS=${deployed.container.password} > /dev/null</#if></#assign>
+<#if deployed.container.audit_username?has_content>export DDB_AUDIT_USER=${deployed.container.audit_username} > /dev/null</#if>
+<#if deployed.container.audit_password?has_content>export DDB_AUDIT_PASS=${deployed.container.audit_password} > /dev/null</#if>
+<#if deployed.container.username?has_content>export DDB_USER=${deployed.container.username} > /dev/null</#if>
+<#if deployed.container.password?has_content>export DDB_PASS=${deployed.container.password} > /dev/null</#if>

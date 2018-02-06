@@ -11,18 +11,4 @@
 -->
 <#include "/datical/datical_generic.ftl">
 <#include "/datical/datical_credentials.bat.ftl">
-${ddb_audit_user}
-${ddb_audit_pass}
-${ddb_user}
-${ddb_pass}
-<#--
-echo DDB_USER=%DDB_USER%
-echo DDB_PASS=%DDB_PASS%
-echo DDB_AUDIT_USER=%DDB_AUDIT_USER%
-echo DDB_AUDIT_PASS=%DDB_AUDIT_PASS%
--->
-<#--
-${login} -p ${deployed.targetPath} forecast ${environment} ${labels} ${reports} ${pipeline}
--->
-cd ${deployed.targetPath}
-${login_simple} forecast ${environment} ${labels} ${reports} ${pipeline}
+${login_simple} -p ${deployed.targetPath} forecast ${environment} ${labels} ${reports} ${pipeline}

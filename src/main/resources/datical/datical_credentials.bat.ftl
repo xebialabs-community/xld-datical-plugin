@@ -10,7 +10,7 @@
  
 -->
 
-<#assign ddb_audit_user><#if deployed.container.audit_username?has_content>@set DDB_AUDIT_USER=${deployed.container.audit_username}</#if></#assign>
-<#assign ddb_audit_pass><#if deployed.container.audit_password?has_content>@set DDB_AUDIT_PASS=${deployed.container.audit_password}</#if></#assign>
-<#assign ddb_user><#if deployed.container.username?has_content>@set DDB_USER=${deployed.container.username}</#if></#assign>
-<#assign ddb_pass><#if deployed.container.password?has_content>@set DDB_PASS=${deployed.container.password}</#if></#assign>
+<#if deployed.container.audit_username?has_content>@set DDB_AUDIT_USER=${deployed.container.audit_username}</#if>
+<#if deployed.container.audit_password?has_content>@set DDB_AUDIT_PASS=${deployed.container.audit_password}</#if>
+<#if deployed.container.username?has_content>@set DDB_USER=${deployed.container.username}</#if>
+<#if deployed.container.password?has_content>@set DDB_PASS=${deployed.container.password}</#if>

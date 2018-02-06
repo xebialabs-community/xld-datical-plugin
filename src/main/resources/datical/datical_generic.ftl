@@ -11,8 +11,6 @@
 -->
 <#assign environment><#if deployed.container.envName?has_content>${deployed.container.envName}<#else>${deployed.envName}</#if></#assign>
 
-<#assign login>${deployed.container.home} <#if deployed.container.username?has_content>-un ${environment}:::${deployed.container.username} -pw ${environment}:::${deployed.container.password}</#if></#assign>
-
 <#assign login_simple>${deployed.container.home} </#assign>
 
 <#assign labels><#if deployed.labels?has_content>--labels="${deployed.labels}"</#if></#assign>
