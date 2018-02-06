@@ -7,8 +7,10 @@
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+ 
 -->
-<#include "/datical/datical_generic.ftl">
-<#include "/datical/datical_credentials.sh.ftl">
-${login_simple} -p ${deployed.targetPath} deploy ${environment} ${labels} ${reports} ${pipeline}
+
+<#if deployed.container.audit_username?has_content>@set DDB_AUDIT_USER=${deployed.container.audit_username}</#if>
+<#if deployed.container.audit_password?has_content>@set DDB_AUDIT_PASS=${deployed.container.audit_password}</#if>
+<#if deployed.container.username?has_content>@set DDB_USER=${deployed.container.username}</#if>
+<#if deployed.container.password?has_content>@set DDB_PASS=${deployed.container.password}</#if>

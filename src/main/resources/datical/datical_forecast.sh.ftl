@@ -10,4 +10,5 @@
 
 -->
 <#include "/datical/datical_generic.ftl">
-${login} -p ${deployed.targetPath} forecast ${environment} ${labels} ${reports}
+<#include "/datical/datical_credentials.sh.ftl">
+${login_simple} -p ${deployed.targetPath} forecast ${environment} ${labels} ${reports} ${pipeline}

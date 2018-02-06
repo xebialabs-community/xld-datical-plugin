@@ -10,4 +10,5 @@
 
 -->
 <#include "/datical/datical_generic.ftl">
-${login} -p ${deployed.targetPath} statusDetails ${environment}
+<#include "/datical/datical_credentials.bat.ftl">
+${login_simple} -p ${deployed.targetPath} statusDetails ${environment}

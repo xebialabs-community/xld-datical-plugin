@@ -10,4 +10,5 @@
 
 -->
 <#include "/datical/datical_generic.ftl">
-${login} -p ${deployed.targetPath} deploy ${environment} ${labels} ${reports} ${pipeline}
+<#include "/datical/datical_credentials.bat.ftl">
+${login_simple} -p ${deployed.targetPath} deploy ${environment} ${labels} ${reports} ${pipeline}

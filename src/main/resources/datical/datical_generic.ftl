@@ -11,7 +11,7 @@
 -->
 <#assign environment><#if deployed.container.envName?has_content>${deployed.container.envName}<#else>${deployed.envName}</#if></#assign>
 
-<#assign login>${deployed.container.home} <#if deployed.container.username?has_content>-un ${environment}:::${deployed.container.username} -pw ${environment}:::${deployed.container.password}</#if></#assign>
+<#assign login_simple>${deployed.container.home} </#assign>
 
 <#assign labels><#if deployed.labels?has_content>--labels="${deployed.labels}"</#if></#assign>
 
@@ -19,4 +19,4 @@
 
 <#assign pipeline><#if deployed.pipeline?has_content>--pipeline="${deployed.pipeline}"</#if></#assign>
 
-
+<#assign curl><#if deployed.curl_path?has_content>"${deployed.curl_path} --insecure --request POST https://${deployed.daticalweb_host}/service/reporting/qa/v1/audit-db/sync"</#if></#assign>
