@@ -10,5 +10,5 @@
 
 -->
 <#assign environment><#if previousDeployed.container.envName?has_content>${previousDeployed.container.envName}<#else>${previousDeployed.envName}</#if></#assign>
-
-<#assign login_simple>${previousDeployed.container.home} </#assign>
+<#assign pipeline><#if previousDeployed.pipeline?has_content>--pipeline="${previousDeployed.pipeline}"</#if></#assign>
+<#assign hammer>${previousDeployed.container.home}</#assign>

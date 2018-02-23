@@ -8,15 +8,21 @@
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+<#assign hammerweb><#if isdaticalservice=="true">${deployed.container.home} --daticalServer=${deployed.container.daticalservice_server} --daticalUsername=${deployed.container.daticalservice_username}</#if></#assign>
+<#assign isdaticalservice>${(deployed.container.daticalservice_host)?has_content}</#assign>
+<#assign isdaticalservice><#if deployed.container.daticalservice_host?has_content>"true"<#else>"false"</#if></#assign>
 -->
+
 <#assign environment><#if deployed.container.envName?has_content>${deployed.container.envName}<#else>${deployed.envName}</#if></#assign>
 
-<#assign login_simple>${deployed.container.home} </#assign>
+<#assign hammer>${deployed.container.home}</#assign>
+
+<#assign daticalservice_project><#if deployed.container.daticalservice_project?has_content>--projectKey=${deployed.container.daticalservice_project}</#if></#assign>
+<#assign daticalservice_projectStatus><#if deployed.container.daticalservice_project?has_content>${deployed.container.daticalservice_project}</#if></#assign>
+<#assign daticalservice_host><#if deployed.container.daticalservice_host?has_content>--daticalServer=${deployed.container.daticalservice_host}</#if></#assign>
+<#assign daticalservice_username><#if deployed.container.daticalservice_username?has_content>--daticalUsername=${deployed.container.daticalservice_username}</#if></#assign>
+<#assign daticalservice_password><#if deployed.container.daticalservice_password?has_content>--daticalUsername=${deployed.container.daticalservice_password}</#if></#assign>
 
 <#assign labels><#if deployed.labels?has_content>--labels="${deployed.labels}"</#if></#assign>
-
 <#assign reports><#if deployed.reportsLocation?has_content>--report="${deployed.reportsLocation}"</#if></#assign>
-
 <#assign pipeline><#if deployed.pipeline?has_content>--pipeline="${deployed.pipeline}"</#if></#assign>
-
-<#assign curl><#if deployed.curl_path?has_content>"${deployed.curl_path} --insecure --request POST https://${deployed.daticalweb_host}/service/reporting/qa/v1/audit-db/sync"</#if></#assign>

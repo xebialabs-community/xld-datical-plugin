@@ -13,7 +13,7 @@
 <#include "/datical/datical_credentials.sh.ftl">
 echo "Refeshing status with Datical Management Console ..."
 if [ "${curl}" != "" ] && [ "${daticalweb}" != "" ]; then
-	${login_simple} -p ${deployed.targetPath} status ${environment}
+	${hammer} -p ${deployed.targetPath} status ${environment}
 	${curl} --insecure --request POST https://${daticalweb}/service/reporting/qa/v1/audit-db/sync
 else
 	echo "INFO: curl Command Path not set. Or Datical Web Hostname not specified."

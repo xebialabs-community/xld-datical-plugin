@@ -22,3 +22,45 @@ ${ziploc} x ${deployed.file.path} -aoa -o${deployed.targetPath}
 <#if !deployed.container.zipLocation?has_content>
     rmdir /s /q C:\Temp\7zip
 </#if>
+
+<#if (deployedApplication.environment.name)?has_content>
+	echo deployedApplication.environment.name=${deployedApplication.environment.name}
+<#else>
+	echo No information available for deployedApplication.environment.name
+</#if>
+
+<#if (deployedApplication.version)?has_content>
+	echo deployedApplication.version=${deployedApplication.version}
+<#else>
+	echo No information available for deployedApplication.version
+</#if>
+
+<#if (deployedApplication.getVersion().getVersion())?has_content>
+	echo deployedApplication.getVersion()=${deployedApplication.getVersion().getVersion()}
+<#else>
+	echo No information available for deployedApplication.getVersion().getVersion()
+</#if>
+
+<#if (deployedApplication.getVersion())?has_content>
+	echo deployedApplication.getVersion()=${deployedApplication.getVersion()}
+<#else>
+	echo No information available for deployedApplication.getVersion()
+</#if>
+
+<#if (deployedApplication.version.version)?has_content>
+	echo deployedApplication.version.version=${deployedApplication.version.version}
+<#else>
+	echo No information available for deployedApplication.version.version
+</#if>
+
+<#if (deployedApplication.version.application.name)?has_content>
+	echo deployedApplication.version.application.name=${deployedApplication.version.application.name}
+<#else>
+	echo No information available for deployedApplication.version.application.name
+</#if>
+
+<#if (previousDeployedApplication.version.name)?has_content>
+	echo previousDeployedApplication.version.name=${previousDeployedApplication.version.name}
+<#else>
+	echo No information available for previousDeployedApplication.version.name
+</#if>

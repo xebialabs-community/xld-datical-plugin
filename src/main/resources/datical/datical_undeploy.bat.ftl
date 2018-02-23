@@ -10,12 +10,12 @@
 
 -->
 
-<#include "/datical/datical_credentials.bat.ftl">
 <#include "/datical/datical_generic_undeploy.ftl">
+<#include "/datical/datical_credentials_undeploy.bat.ftl">
 <#if previousDeployed.changeids?size gt 0>
     <#list previousDeployed.changeids as changeid>
-	${login_simple} -p ${previousDeployed.targetPath} rollback ${environment} changeid:id=${changeid}
+	${hammer} -p ${previousDeployed.targetPath} rollback ${pipeline} ${environment} changeid:id=${changeid}
     </#list>
 <#else>
-${login_simple} -p ${previousDeployed.targetPath} rollback ${environment} lastdeploy
+${hammer} -p ${previousDeployed.targetPath} rollback ${pipeline} ${environment} lastdeploy
 </#if>

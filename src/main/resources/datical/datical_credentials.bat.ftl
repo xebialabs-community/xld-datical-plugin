@@ -8,9 +8,21 @@
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
--->
-
+echo ISdaticalservice=${isdaticalservice}
 <#if deployed.container.audit_username?has_content>@set DDB_AUDIT_USER=${deployed.container.audit_username}</#if>
 <#if deployed.container.audit_password?has_content>@set DDB_AUDIT_PASS=${deployed.container.audit_password}</#if>
 <#if deployed.container.username?has_content>@set DDB_USER=${deployed.container.username}</#if>
 <#if deployed.container.password?has_content>@set DDB_PASS=${deployed.container.password}</#if>
+-->
+<#if !(deployed.container.daticalservice_host?has_content)>
+	<#if deployed.container.audit_username?has_content>@set DDB_AUDIT_USER=${deployed.container.audit_username}</#if>
+	<#if deployed.container.audit_password?has_content>@set DDB_AUDIT_PASS=${deployed.container.audit_password}</#if>
+	<#if deployed.container.username?has_content>@set DDB_USER=${deployed.container.username}</#if>
+	<#if deployed.container.password?has_content>@set DDB_PASS=${deployed.container.password}</#if>
+</#if>
+
+<#if deployed.container.daticalservice_username?has_content>@set DATICAL_USERNAME=${deployed.container.daticalservice_username}</#if>
+<#if deployed.container.daticalservice_password?has_content>@set DATICAL_PASSWORD=${deployed.container.daticalservice_password}</#if>
+<#if deployed.container.daticalservice_server?has_content>@set DATICAL_SERVER=${deployed.container.daticalservice_server}</#if>
+<#if deployed.container.daticalservice_client_secret?has_content>@set DATICAL_CLIENT_SECRET=${deployed.container.daticalservice_client_secret}</#if>
+<#if deployed.container.instant_client_home?has_content>@set INSTANT_CLIENT_HOME=${deployed.container.instant_client_home}</#if>

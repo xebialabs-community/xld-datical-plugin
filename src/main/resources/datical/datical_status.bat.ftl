@@ -14,7 +14,7 @@
 cd ${deployed.targetPath}
 
 <#if deployed.container.daticalservice_host?has_content>
-	${hammer} ${daticalservice_host} ${daticalservice_username} deploy ${pipeline} ${environment} ${daticalservice_project} ${labels} ${reports}
+	${hammer} ${daticalservice_host} ${daticalservice_username} status ${daticalservice_projectStatus} ${pipeline} 
 <#else>
-	${hammer} -p ${deployed.targetPath} deploy ${environment} ${labels} ${reports} ${pipeline}
+	${hammer} status  ${environment} ${pipeline}
 </#if>

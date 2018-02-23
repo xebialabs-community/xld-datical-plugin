@@ -33,15 +33,24 @@
                   description="Audit database username when the project has the 'Specify database credentials at operation run time' option set." />
         <property name="audit_password" label="Audit Password" required="false" category="Credentials" password="true"
                   description="Audit database password when the project has the 'Specify database credentials at operation run time' option set." />
-        <property name="curl_path" label="curl Command Path" required="false" 
-                  description="Fully qualified location of curl CLI command (e.g., C:\apps\Git\mingw64\bin\curl.exe). Required if Datical Web Hostname is specified." />
-        <property name="daticalweb_host" label="Datical Web Hostname" required="false" 
-                  description="The hostname for Datical Management Console (e.g., dmc.datical.net)." />
-        <method name="check"
+
+	  <property name="daticalservice_host" label="Datical Service Hostname" required="false"  category="Datical Service"
+                  description="The hostname for Datical Management Console (e.g., dmc.datical.net).\nIf this field is left blank Datical 4 will be used." />
+        <property name="daticalservice_project" label="Datical Service Project" required="false" category="Datical Service" 
+                  description="Datical 5 project name." />
+        <property name="daticalservice_username" label="Datical Service Username" required="false" category="Datical Service" 
+                  description="The username defined in Datical 5 that is assigned to a project." />
+        <property name="daticalservice_password" label="Datical Service Password" required="false" category="Datical Service" password="true"
+                  description="The password for the Datical Service Username."/>
+        <property name="daticalservice_client_secret" label="Datical Service Client Secret" required="false"  category="Datical Service" password="true"
+                  description="This is the client secret tied to hammer client configured in Keycloak." />
+        <property name="instant_client_home" label="Datical Service Instant Client Home" required="false"  category="Datical Service" 
+                  description="Path to where instant client is installed (e.g., C:\apps\Datical5\instantclient)." />
+				  
+		<method name="check"
                 delegate="shellScript"
                 host="${thisCi.host}"
                 script="datical/check_hammer"/>
-
     </type>
 
     <type type="datical.DeployedProject" extends="udm.BaseDeployedArtifact"
@@ -69,6 +78,7 @@
         <property name="pipeline" label="Pipeline"
                   description="When set, this is the pipeline which will be associated with the deployment for auditing purposes."
                   required="false" />
+
     </type>
 
 

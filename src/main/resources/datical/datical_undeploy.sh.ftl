@@ -14,8 +14,8 @@
 <#include "/datical/datical_generic_undeploy.ftl">
 <#if previousDeployed.changeids?size gt 0>
     <#list previousDeployed.changeids as changeid>
-    ${login} -p ${previousDeployed.targetPath} rollback ${environment} changeid:id=${changeid}
+    ${hammer} -p ${previousDeployed.targetPath} rollback ${pipeline} ${environment} changeid:id=${changeid}
     </#list>
 <#else>
-${login} -p ${previousDeployed.targetPath} rollback ${environment} lastdeploy
+${hammer} -p ${previousDeployed.targetPath} rollback ${pipeline} ${environment} lastdeploy
 </#if>

@@ -17,10 +17,11 @@
             <type>datical.DeployedProject</type>
             <operation>CREATE</operation>
             <operation>MODIFY</operation>
+            <expression>not context.isRollback()</expression>
         </conditions>
         <steps>
             <os-script>
-                <description expression="true">"Upload project for datical [%s]" % deployed.name</description>
+                <description expression="true">"Upload project for datical [%s]" % (deployed.name)</description>
                 <script>datical/datical_upload</script>
                 <order>60</order>
                 <classpath-resources>
@@ -44,17 +45,36 @@
         </steps>
     </rule>
 
+<!--
     <rule name="datical.DeployedProject.StatusDetail.CREATE" scope="deployed">
         <conditions>
             <type>datical.DeployedProject</type>
             <operation>CREATE</operation>
             <operation>MODIFY</operation>
-            <expression>deployed.runStatus</expression>
+            <expression>deployed.runStatus and not context.isRollback()</expression>
         </conditions>
         <steps>
             <os-script>
                 <description expression="true">"Statusdetail for datical project [%s]" % deployed.name</description>
-                <script>datical/datical_status_detail</script>
+				<script>datical/datical_status_detail</script>
+                <order>61</order>
+                <upload-artifacts>false</upload-artifacts>
+            </os-script>
+        </steps>
+    </rule>
+-->
+
+	<rule name="datical.DeployedProject.Status.CREATE" scope="deployed">
+        <conditions>
+            <type>datical.DeployedProject</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+            <expression>deployed.runStatus and not context.isRollback()</expression>
+        </conditions>
+        <steps>
+            <os-script>
+                <description expression="true">"Status for datical project [%s]" % deployed.name</description>
+                <script>datical/datical_status</script>
                 <order>61</order>
                 <upload-artifacts>false</upload-artifacts>
             </os-script>
@@ -66,7 +86,7 @@
             <type>datical.DeployedProject</type>
             <operation>CREATE</operation>
             <operation>MODIFY</operation>
-            <expression>deployed.runForecast</expression>
+            <expression>deployed.runForecast and not context.isRollback()</expression>
         </conditions>
         <steps>
             <os-script>
@@ -78,15 +98,15 @@
         </steps>
     </rule>
 
-<!--
-    <rule name="datical.DeployedProject.DESTROY" scope="deployed">
+    <rule name="datical.DeployedProject.ROLLBACK" scope="deployed">
         <conditions>
             <type>datical.DeployedProject</type>
-            <operation>DESTROY</operation>
-        </conditions>
+            <operation>MODIFY</operation>
+            <expression>context.isRollback()</expression>
+       </conditions>
         <steps>
             <os-script>
-                <description expression="true">"Upload project for datical [%s]" % previousDeployed.name</description>
+                <description expression="true">"Upload project for datical [%s]" % (previousDeployed.name) </description>
                 <script>datical/datical_upload</script>
                 <order>40</order>
                 <freemarker-context>
@@ -94,14 +114,14 @@
                 </freemarker-context>
             </os-script>
             <os-script>
-                <description expression="true">"Undeploy datical %s" % previousDeployed.name</description>
+                <description expression="true">"Undeploy datical [%s]" % previousDeployed.name</description>
                 <script>datical/datical_undeploy</script>
-                <order>42</order>
+                <order>43</order>
             </os-script>
             <os-script>
                 <description expression="true">"Remove project [%s] from server" % previousDeployed.name</description>
                 <script>datical/datical_remove</script>
-                <order>43</order>
+                <order>44</order>
                 <upload-artifacts>false</upload-artifacts>
                 <freemarker-context>
                     <deployed expression="true">previousDeployed</deployed>
@@ -109,18 +129,50 @@
             </os-script>
         </steps>
     </rule>
--->
 
+    <rule name="datical.DeployedProject.DESTROY" scope="deployed">
+        <conditions>
+            <type>datical.DeployedProject</type>
+            <operation>DESTROY</operation>
+       </conditions>
+        <steps>
+            <os-script>
+                <description expression="true">"Upload project for datical [%s]" % (previousDeployed.name) </description>
+                <script>datical/datical_upload</script>
+                <order>40</order>
+                <freemarker-context>
+                    <deployed expression="true">previousDeployed</deployed>
+                </freemarker-context>
+            </os-script>
+            <os-script>
+                <description expression="true">"Undeploy datical [%s]" % previousDeployed.name</description>
+                <script>datical/datical_undeploy</script>
+                <order>43</order>
+            </os-script>
+            <os-script>
+                <description expression="true">"Remove project [%s] from server" % previousDeployed.name</description>
+                <script>datical/datical_remove</script>
+                <order>44</order>
+                <upload-artifacts>false</upload-artifacts>
+                <freemarker-context>
+                    <deployed expression="true">previousDeployed</deployed>
+                </freemarker-context>
+            </os-script>
+        </steps>
+    </rule>
+
+<!--
     <rule name="datical.DeployedProject.StatusDetail.DESTROY" scope="deployed">
         <conditions>
             <type>datical.DeployedProject</type>
             <operation>DESTROY</operation>
+            <operation>MODIFY</operation>
             <expression>previousDeployed.runStatus</expression>
         </conditions>
         <steps>
             <os-script>
                 <description expression="true">"Statusdetail for datical project [%s]" % previousDeployed.name</description>
-                <script>datical/datical_status_detail</script>
+				<script>datical/datical_status_detail</script>
                 <order>41</order>
                 <upload-artifacts>false</upload-artifacts>
                 <freemarker-context>
@@ -129,7 +181,8 @@
             </os-script>
         </steps>
     </rule>
-
+-->
+<!--
 	<rule name="datical.DeployedProject.StatusDetail.After.CREATE" scope="deployed">
         <conditions>
             <type>datical.DeployedProject</type>
@@ -145,5 +198,5 @@
             </os-script>
         </steps>
     </rule>
-
+-->	
 </rules>
