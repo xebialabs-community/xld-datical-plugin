@@ -17,12 +17,13 @@
 
 <#assign hammer>${deployed.container.home}</#assign>
 
-<#assign daticalservice_project><#if deployed.container.daticalservice_project?has_content>--projectKey=${deployed.container.daticalservice_project}</#if></#assign>
 <#assign daticalservice_projectStatus><#if deployed.container.daticalservice_project?has_content>${deployed.container.daticalservice_project}</#if></#assign>
 <#assign daticalservice_host><#if deployed.container.daticalservice_host?has_content>--daticalServer=${deployed.container.daticalservice_host}</#if></#assign>
 <#assign daticalservice_username><#if deployed.container.daticalservice_username?has_content>--daticalUsername=${deployed.container.daticalservice_username}</#if></#assign>
 <#assign daticalservice_password><#if deployed.container.daticalservice_password?has_content>--daticalUsername=${deployed.container.daticalservice_password}</#if></#assign>
 
+<#assign daticalservice_project><#if deployed.daticalservice_project?has_content>--projectKey=${deployed.daticalservice_project}</#if></#assign>
+<#assign daticalservice_projectStatus><#if deployed.daticalservice_project?has_content>${deployed.daticalservice_project}</#if></#assign>
 <#assign labels><#if deployed.labels?has_content>--labels="${deployed.labels}"</#if></#assign>
 <#assign reports><#if deployed.reportsLocation?has_content>--report="${deployed.reportsLocation}"</#if></#assign>
 <#assign pipeline><#if deployed.pipeline?has_content>--pipeline="${deployed.pipeline}"</#if></#assign>

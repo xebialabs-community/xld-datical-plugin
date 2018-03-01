@@ -36,8 +36,6 @@
 
 	  <property name="daticalservice_host" label="Datical Service Hostname" required="false"  category="Datical Service"
                   description="The hostname for Datical Management Console (e.g., dmc.datical.net).\nIf this field is left blank Datical 4 will be used." />
-        <property name="daticalservice_project" label="Datical Service Project" required="false" category="Datical Service" 
-                  description="Datical 5 project name." />
         <property name="daticalservice_username" label="Datical Service Username" required="false" category="Datical Service" 
                   description="The username defined in Datical 5 that is assigned to a project." />
         <property name="daticalservice_password" label="Datical Service Password" required="false" category="Datical Service" password="true"
@@ -75,6 +73,8 @@
         <property name="runForecast" label="Run Forecast"
                   description="If true, a forecast step will be added when deploying" kind="boolean" default="true"
                   required="false"/>
+        <property name="daticalservice_project" label="Datical Service Project"
+                  description="Datical 5 project name." />
         <property name="pipeline" label="Pipeline"
                   description="When set, this is the pipeline which will be associated with the deployment for auditing purposes."
                   required="false" />
