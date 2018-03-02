@@ -8,11 +8,8 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-from com.xebialabs.deployit.plugin.api.deployment.specification import Operation
-import re
-
 def destroyPlan( context ):
-	
+
 	if delta.operation == "DESTROY":
 		context.addStep(steps.os_script(
 			description = "Upload project for datical [%s]" % (previousDeployed.name),
@@ -36,7 +33,6 @@ def destroyPlan( context ):
 		))
 
 		# Optional "Status" steps:
-		
 		if previousDeployed.runStatus :
 			context.addStep(steps.os_script(
 				description = "Status for datical project [%s]" % previousDeployed.name,
@@ -45,7 +41,7 @@ def destroyPlan( context ):
 				freemarker_context={'deployed': previousDeployed}
 			))
 		# End previousDeployed.runStatus
-				
+
 	# End if delta.operation == "DESTROY"
 
 # End def destroyPlan

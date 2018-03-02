@@ -8,11 +8,10 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-from com.xebialabs.deployit.plugin.api.deployment.specification import Operation
 import re
 
 def modifyPlan( context ):
-	
+
 	regex = r"(\d*)$"
 	versionDeployed = re.search(regex, deployedApplication.version.name).group(0)
 	versionPreviousDeployed = re.search(regex, previousDeployedApplication.version.name).group(0)
@@ -44,17 +43,17 @@ def modifyPlan( context ):
 				freemarker_context={'deployed': previousDeployed}
 			))
 
-		# End if versionDeployed > versionPreviousDeployed	
+		# End if versionDeployed > versionPreviousDeployed
 		else :
-							
+
 			context.addStep(steps.os_script(
 				description = "Deploy [%s version %s]" % (deployed.name, versionDeployed),
 				order = 63,
 				script = "datical/datical_deploy"
 			))
-			
+
 		# End else
-			
+
 		# Optional "Status" and "Forecast" steps:
 		if deployed.runStatus :
 			context.addStep(steps.os_script(
@@ -70,8 +69,8 @@ def modifyPlan( context ):
 				order = 62,
 				script = "datical/datical_forecast"
 			))
-		# End deployed.runForecast	
-	
+		# End deployed.runForecast
+
 	# End if delta.operation == "MODIFY"
 
 # End def modifyPlan
