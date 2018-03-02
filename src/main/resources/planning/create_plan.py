@@ -51,5 +51,5 @@ def createPlan( context ):
 	# End if delta.operation == "CREATE"
 
 # End def createPlan
-	
+
 createPlan( context )
