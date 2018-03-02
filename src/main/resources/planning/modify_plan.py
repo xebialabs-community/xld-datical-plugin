@@ -35,7 +35,7 @@ def modifyPlan( context ):
 		# Detect new version or older version
 		# Perform rollback if deploying older version
 		if isRollback :
-				
+
 			context.addStep(steps.os_script(
 				description = "Rollback [%s to %s]" % (previousDeployed.name, versionDeployed),
 				order = 63,

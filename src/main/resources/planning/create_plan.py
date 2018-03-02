@@ -18,7 +18,7 @@ def createPlan( context ):
 			order = 60,
 			script = "datical/datical_upload",
 		))
-			
+
 		context.addStep(steps.os_script(
 			description = "Deploy datical project [%s]" % deployed.name,
 			order = 63,
