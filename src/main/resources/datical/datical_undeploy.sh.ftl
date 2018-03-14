@@ -10,8 +10,8 @@
 
 -->
 
-<#include "/datical/datical_credentials.sh.ftl">
 <#include "/datical/datical_generic_undeploy.ftl">
+<#include "/datical/datical_credentials_undeploy.sh.ftl">
 <#if previousDeployed.changeids?size gt 0>
     <#list previousDeployed.changeids as changeid>
     ${hammer} -p ${previousDeployed.targetPath} rollback ${pipeline} ${environment} changeid:id=${changeid}

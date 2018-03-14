@@ -15,7 +15,7 @@
 	<rule name="datical.DeployedProject.CREATE" scope="deployed">
         <conditions>
 			<type>datical.DeployedProject</type>
-            <operation>CREATE</operation>
+			<operation>CREATE</operation>
         </conditions>
 		<planning-script-path>planning/create_plan.py</planning-script-path>
 	</rule>	
@@ -23,7 +23,7 @@
 	<rule name="datical.DeployedProject.MODIFY" scope="deployed">
         <conditions>
 			<type>datical.DeployedProject</type>
-            <operation>MODIFY</operation>
+			<operation>MODIFY</operation>
         </conditions>
 		<planning-script-path>planning/modify_plan.py</planning-script-path>
 	</rule>	
@@ -31,7 +31,7 @@
 	<rule name="datical.DeployedProject.DESTROY" scope="deployed">
         <conditions>
 			<type>datical.DeployedProject</type>
-            <operation>DESTROY</operation>
+			<operation>DESTROY</operation>
         </conditions>
 		<planning-script-path>planning/destroy_plan.py</planning-script-path>
 	</rule>	

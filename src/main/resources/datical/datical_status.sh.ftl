@@ -12,8 +12,8 @@
 <#include "/datical/datical_generic.ftl">
 <#include "/datical/datical_credentials.sh.ftl">
 cd ${deployed.targetPath}
-<#if deployed.container.daticalservice_host?has_content>
-	${hammer} ${daticalservice_host} ${daticalservice_username} status ${daticalservice_projectStatus} ${pipeline} 
+<#if deployed.container.daticalServiceHost?has_content>
+	${hammer} ${daticalServiceHost} ${daticalServiceUserName} status ${daticalServiceProjectStatus} ${pipeline} 
 <#else>
 	${hammer} status ${environment} ${pipeline}
 </#if>

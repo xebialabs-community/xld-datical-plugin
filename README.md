@@ -29,7 +29,7 @@ The xld-datical-plugin is a XL Deploy plugin that allows to deploy, rollback, ..
 
 Place the [latest](https://github.com/xebialabs-community/xld-datical-plugin/releases) released version under the `plugins` dir.
 
-Version 1.7.2 fixes the issue where if database credentials are provided via XLD, then during deployment those username and password are displayed in clear text. This version also adds the capability to store audit database credentials in XLD.
+Version 1.8.0 fixes the issue where if database credentials are provided via XLD, then during deployment those username and password are displayed in clear text. This version also adds the capability to store audit database credentials in XLD.
 
 Version 1.7.1 fixes the issue where it cleans out temp directory if deployment fails.
 

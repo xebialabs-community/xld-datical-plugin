@@ -29,20 +29,20 @@
                   description="Database username when the project has the 'Specify database credentials at operation run time' option set." />
         <property name="password" label="Password" required="false" category="Credentials" password="true"
                   description="Database password when the project has the 'Specify database credentials at operation run time' option set." />
-        <property name="audit_username" label="Audit Username" required="false" category="Credentials"
+        <property name="auditUsername" label="Audit Username" required="false" category="Credentials"
                   description="Audit database username when the project has the 'Specify database credentials at operation run time' option set." />
-        <property name="audit_password" label="Audit Password" required="false" category="Credentials" password="true"
+        <property name="auditPassword" label="Audit Password" required="false" category="Credentials" password="true"
                   description="Audit database password when the project has the 'Specify database credentials at operation run time' option set." />
 
-	  <property name="daticalservice_host" label="Datical Service Hostname" required="false"  category="Datical Service"
+	  <property name="daticalServiceHost" label="Datical Service Hostname" required="false"  category="Datical Service"
                   description="The hostname for Datical Management Console (e.g., dmc.datical.net).\nIf this field is left blank Datical 4 will be used." />
-        <property name="daticalservice_username" label="Datical Service Username" required="false" category="Datical Service" 
+        <property name="daticalServiceUserName" label="Datical Service Username" required="false" category="Datical Service" 
                   description="The username defined in Datical 5 that is assigned to a project." />
-        <property name="daticalservice_password" label="Datical Service Password" required="false" category="Datical Service" password="true"
+        <property name="daticalServicePassword" label="Datical Service Password" required="false" category="Datical Service" password="true"
                   description="The password for the Datical Service Username."/>
-        <property name="daticalservice_client_secret" label="Datical Service Client Secret" required="false"  category="Datical Service" password="true"
+        <property name="daticalServiceClientSecret" label="Datical Service Client Secret" required="false"  category="Datical Service" password="true"
                   description="This is the client secret tied to hammer client configured in Keycloak." />
-        <property name="instant_client_home" label="Datical Service Instant Client Home" required="false"  category="Datical Service" 
+        <property name="daticalServiceInstantClientHome" label="Datical Service Instant Client Home" required="false"  category="Datical Service" 
                   description="Path to where instant client is installed (e.g., C:\apps\Datical5\instantclient)." />
 				  
 		<method name="check"
@@ -73,7 +73,7 @@
         <property name="runForecast" label="Run Forecast"
                   description="If true, a forecast step will be added when deploying" kind="boolean" default="true"
                   required="false"/>
-        <property name="daticalservice_project" label="Datical Service Project"
+        <property name="daticalServiceProject" label="Datical Service Project"
                   description="Datical 5 project name."
 				  kind="string"
 				  required="false"/>
