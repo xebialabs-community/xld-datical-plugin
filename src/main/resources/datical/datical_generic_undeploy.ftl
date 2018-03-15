@@ -10,7 +10,5 @@
 
 -->
 <#assign environment><#if previousDeployed.container.envName?has_content>${previousDeployed.container.envName}<#else>${previousDeployed.envName}</#if></#assign>
-
-<#assign login>${previousDeployed.container.home} <#if previousDeployed.container.username?has_content>-un ${environment}:::${previousDeployed.container.username} -pw ${environment}:::${previousDeployed.container.password}</#if></#assign>
-
-
+<#assign pipeline><#if previousDeployed.pipeline?has_content>--pipeline="${previousDeployed.pipeline}"</#if></#assign>
+<#assign hammer>${previousDeployed.container.home}</#assign>

@@ -10,4 +10,13 @@
 
 -->
 <#include "/datical/datical_generic.ftl">
-${login} -p ${deployed.targetPath} forecast ${environment} ${labels} ${reports}
+<#include "/datical/datical_credentials.bat.ftl">
+cd ${deployed.targetPath}
+
+<#if deployed.container.daticalServiceHost?has_content>
+	${hammer} ${daticalServiceHost} ${daticalServiceUserName} forecast ${pipeline} ${environment} ${daticalServiceProject} ${labels} ${reports}
+<#else>
+	${hammer} -p ${deployed.targetPath} forecast ${environment} ${labels} ${reports} ${pipeline}
+</#if>
+
+-->

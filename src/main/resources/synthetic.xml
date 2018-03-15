@@ -25,16 +25,30 @@
                   description="Absolute Path to 7zip.exe (only applicable on Windows). If provided this one will be used, else the prepackaged one will be used."/>
         <property name="envName" label="Environment Name" required="false"
                   description="Environment name to be used for forecast and deploy (e.g. XE)"/>
-
         <property name="username" label="Username" required="false" category="Credentials"
                   description="Database username when the project has the 'Specify database credentials at operation run time' option set." />
         <property name="password" label="Password" required="false" category="Credentials" password="true"
                   description="Database password when the project has the 'Specify database credentials at operation run time' option set." />
-        <method name="check"
+        <property name="auditUsername" label="Audit Username" required="false" category="Credentials"
+                  description="Audit database username when the project has the 'Specify database credentials at operation run time' option set." />
+        <property name="auditPassword" label="Audit Password" required="false" category="Credentials" password="true"
+                  description="Audit database password when the project has the 'Specify database credentials at operation run time' option set." />
+
+	  <property name="daticalServiceHost" label="Datical Service Hostname" required="false"  category="Datical Service"
+                  description="The hostname for Datical Management Console (e.g., dmc.datical.net).\nIf this field is left blank Datical 4 will be used." />
+        <property name="daticalServiceUserName" label="Datical Service Username" required="false" category="Datical Service" 
+                  description="The username defined in Datical 5 that is assigned to a project." />
+        <property name="daticalServicePassword" label="Datical Service Password" required="false" category="Datical Service" password="true"
+                  description="The password for the Datical Service Username."/>
+        <property name="daticalServiceClientSecret" label="Datical Service Client Secret" required="false"  category="Datical Service" password="true"
+                  description="This is the client secret tied to hammer client configured in Keycloak." />
+        <property name="daticalServiceInstantClientHome" label="Datical Service Instant Client Home" required="false"  category="Datical Service" 
+                  description="Path to where instant client is installed (e.g., C:\apps\Datical5\instantclient)." />
+				  
+		<method name="check"
                 delegate="shellScript"
                 host="${thisCi.host}"
                 script="datical/check_hammer"/>
-
     </type>
 
     <type type="datical.DeployedProject" extends="udm.BaseDeployedArtifact"
@@ -59,9 +73,14 @@
         <property name="runForecast" label="Run Forecast"
                   description="If true, a forecast step will be added when deploying" kind="boolean" default="true"
                   required="false"/>
+        <property name="daticalServiceProject" label="Datical Service Project"
+                  description="Datical 5 project name."
+				  kind="string"
+				  required="false"/>
         <property name="pipeline" label="Pipeline"
                   description="When set, this is the pipeline which will be associated with the deployment for auditing purposes."
                   required="false" />
+
     </type>
 
 

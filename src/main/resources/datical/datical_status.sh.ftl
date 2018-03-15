@@ -10,4 +10,10 @@
 
 -->
 <#include "/datical/datical_generic.ftl">
-${login} -p ${deployed.targetPath} statusDetails ${environment}
+<#include "/datical/datical_credentials.sh.ftl">
+cd ${deployed.targetPath}
+<#if deployed.container.daticalServiceHost?has_content>
+	${hammer} ${daticalServiceHost} ${daticalServiceUserName} status ${daticalServiceProjectStatus} ${pipeline} 
+<#else>
+	${hammer} status ${environment} ${pipeline}
+</#if>
