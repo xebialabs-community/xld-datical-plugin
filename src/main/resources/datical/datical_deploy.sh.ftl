@@ -13,7 +13,7 @@
 <#include "/datical/datical_credentials.sh.ftl">
 cd ${deployed.targetPath}
 <#if deployed.container.daticalServiceHost?has_content>
-	${hammer} ${daticalServiceHost} ${daticalServiceUserName} deploy ${pipeline} ${environment} ${daticalServiceProject} ${labels} ${reports}
+	${hammer} ${daticalServiceHost} ${daticalServiceUserName} deploy ${pipeline} ${environment} ${daticalServiceProject} ${labels} ${reports} --immutableProject=true 
 <#else>
 	${hammer} -p ${deployed.targetPath} deploy ${environment} ${labels} ${reports} ${pipeline}
 </#if>
