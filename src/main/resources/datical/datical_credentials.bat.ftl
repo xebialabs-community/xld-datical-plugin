@@ -13,13 +13,19 @@ echo Isdaticalservice=${isdaticalservice}
 <#if deployed.container.auditPassword?has_content>@set DDB_AUDIT_PASS=${deployed.container.auditPassword}</#if>
 <#if deployed.container.username?has_content>@set DDB_USER=${deployed.container.username}</#if>
 <#if deployed.container.password?has_content>@set DDB_PASS=${deployed.container.password}</#if>
--->
+
 <#if !(deployed.container.daticalServiceHost?has_content)>
 	<#if deployed.container.auditUsername?has_content>@set DDB_AUDIT_USER=${deployed.container.auditUsername}</#if>
 	<#if deployed.container.auditPassword?has_content>@set DDB_AUDIT_PASS=${deployed.container.auditPassword}</#if>
 	<#if deployed.container.username?has_content>@set DDB_USER=${deployed.container.username}</#if>
 	<#if deployed.container.password?has_content>@set DDB_PASS=${deployed.container.password}</#if>
 </#if>
+-->
+
+<#if deployed.container.auditUsername?has_content>@set DDB_AUDIT_USER=${deployed.container.auditUsername}</#if>
+<#if deployed.container.auditPassword?has_content>@set DDB_AUDIT_PASS=${deployed.container.auditPassword}</#if>
+<#if deployed.container.username?has_content>@set DDB_USER=${deployed.container.username}</#if>
+<#if deployed.container.password?has_content>@set DDB_PASS=${deployed.container.password}</#if>
 
 <#if deployed.container.daticalServiceUserName?has_content>@set DATICAL_USERNAME=${deployed.container.daticalServiceUserName}</#if>
 <#if deployed.container.daticalServicePassword?has_content>@set DATICAL_PASSWORD=${deployed.container.daticalServicePassword}</#if>

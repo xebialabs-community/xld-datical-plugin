@@ -26,3 +26,5 @@
 <#assign labels><#if deployed.labels?has_content>--labels="${deployed.labels}"</#if></#assign>
 <#assign reports><#if deployed.reportsLocation?has_content>--report="${deployed.reportsLocation}"</#if></#assign>
 <#assign pipeline><#if deployed.pipeline?has_content>--pipeline="${deployed.pipeline}"</#if></#assign>
+
+<#assign daticalServiceImmutable>--immutableProject=true</#assign>
