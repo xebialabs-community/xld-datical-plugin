@@ -80,6 +80,9 @@
         <property name="pipeline" label="Pipeline"
                   description="When set, this is the pipeline which will be associated with the deployment for auditing purposes."
                   required="false" />
+        <property name="genRollbackSQL" label="Generate Rollback SQL"
+                  description="When set, a rollback SQL script will be generated in the reports directory."
+                  kind="boolean" default="false" required="false" />
 
     </type>
 
