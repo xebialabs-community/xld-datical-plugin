@@ -1,3 +1,4 @@
+jdk: openjdk8
 language: java
 notifications:
   hipchat:
