@@ -7,9 +7,8 @@
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- 
--->
 
+-->
 <#if !(deployed.container.daticalServiceHost?has_content)>
 	<#if deployed.container.auditUsername?has_content>export DDB_AUDIT_USER=${deployed.container.auditUsername} > /dev/null</#if>
 	<#if deployed.container.auditPassword?has_content>export DDB_AUDIT_PASS=${deployed.container.auditPassword} > /dev/null</#if>

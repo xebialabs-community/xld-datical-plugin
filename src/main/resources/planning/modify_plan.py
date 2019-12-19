@@ -15,7 +15,7 @@ def modifyPlan( context ):
 	regex = r"(\d*)$"
 	versionDeployed = re.search(regex, deployedApplication.version.name).group(0)
 	versionPreviousDeployed = re.search(regex, previousDeployedApplication.version.name).group(0)
-	isRollback = int(versionDeployed) < int(versionPreviousDeployed)
+#	isRollback = int(versionDeployed) < int(versionPreviousDeployed)
 
 	if delta.operation == "MODIFY":
 
@@ -34,26 +34,33 @@ def modifyPlan( context ):
 
 		# Detect new version or older version
 		# Perform rollback if deploying older version
-		if isRollback :
+		# if isRollback :
 
-			context.addStep(steps.os_script(
-				description = "Rollback [%s to %s]" % (previousDeployed.name, versionDeployed),
-				order = 63,
-				script = "datical/datical_undeploy",
-				freemarker_context={'deployed': previousDeployed}
-			))
+			# context.addStep(steps.os_script(
+				# description = "Rollback [%s to %s]" % (previousDeployed.name, versionDeployed),
+				# order = 63,
+				# script = "datical/datical_undeploy",
+				# freemarker_context={'deployed': previousDeployed}
+			# ))
 
 		# End if versionDeployed > versionPreviousDeployed
-		else :
+		# else :
 
-			context.addStep(steps.os_script(
-				description = "Deploy [%s version %s]" % (deployed.name, versionDeployed),
-				order = 63,
-				script = "datical/datical_deploy"
-			))
-
+			# context.addStep(steps.os_script(
+				# description = "Deploy [%s version %s]" % (deployed.name, versionDeployed),
+				# order = 63,
+				# script = "datical/datical_deploy"
+			# ))
+			
 		# End else
-
+		
+		# Comment this section 
+		context.addStep(steps.os_script(
+			description = "Deploy [%s version %s]" % (deployed.name, versionDeployed),
+			order = 63,
+			script = "datical/datical_deploy"
+		))
+		
 		# Optional "Status" and "Forecast" steps:
 		if deployed.runStatus :
 			context.addStep(steps.os_script(
@@ -63,7 +70,8 @@ def modifyPlan( context ):
 			))
 		# End deployed.runStatus
 
-		if (deployed.runForecast and not isRollback):
+#		if (deployed.runForecast and not isRollback):
+		if (deployed.runForecast):
 			context.addStep(steps.os_script(
 				description = "Forecast for datical project [%s]" % deployed.name,
 				order = 62,

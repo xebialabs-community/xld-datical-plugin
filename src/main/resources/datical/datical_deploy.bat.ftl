@@ -14,7 +14,10 @@
 cd ${deployed.targetPath}
 
 <#if deployed.container.daticalServiceHost?has_content>
+	<#--
+	${hammer} ${daticalServiceHost} ${daticalServiceUserName} deploy ${pipeline} ${environment} ${daticalServiceProject} ${labels} ${reports} ${daticalServiceImmutable}
+	-->
 	${hammer} ${daticalServiceHost} ${daticalServiceUserName} deploy ${pipeline} ${environment} ${daticalServiceProject} ${labels} ${reports}
 <#else>
-	${hammer} -p ${deployed.targetPath} deploy ${environment} ${labels} ${reports} ${pipeline}
+	${hammer} -p ${deployed.targetPath} deploy ${environment} ${labels} ${reports} ${pipeline} ${genRollbackSQL}
 </#if>

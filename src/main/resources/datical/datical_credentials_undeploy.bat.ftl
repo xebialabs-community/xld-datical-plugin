@@ -9,7 +9,6 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -->
-
 <#if previousDeployed.container.auditUsername?has_content>@set DDB_AUDIT_USER=${previousDeployed.container.auditUsername}</#if>
 <#if previousDeployed.container.auditPassword?has_content>@set DDB_AUDIT_PASS=${previousDeployed.container.auditPassword}</#if>
 <#if previousDeployed.container.username?has_content>@set DDB_USER=${previousDeployed.container.username}</#if>

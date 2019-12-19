@@ -14,7 +14,10 @@
 cd ${deployed.targetPath}
 
 <#if deployed.container.daticalServiceHost?has_content>
-	${hammer} ${daticalServiceHost} ${daticalServiceUserName} forecast ${pipeline} ${environment} ${daticalServiceProject} ${labels} ${reports}
+	<#--
+	${hammer} ${daticalServiceHost} ${daticalServiceUserName}  forecast ${pipeline} ${environment} ${daticalServiceProject} ${labels} ${reports} ${daticalServiceImmutable} 
+	-->
+	${hammer} ${daticalServiceHost} ${daticalServiceUserName}  forecast ${pipeline} ${environment} ${daticalServiceProject} ${labels} ${reports}
 <#else>
 	${hammer} -p ${deployed.targetPath} forecast ${environment} ${labels} ${reports} ${pipeline}
 </#if>

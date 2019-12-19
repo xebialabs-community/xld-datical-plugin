@@ -18,12 +18,12 @@ def destroyPlan( context ):
 			freemarker_context = {'deployed': previousDeployed}
 		))
 
-		context.addStep(steps.os_script(
-			description = "Undeploy datical [%s]" % previousDeployed.name,
-			order = 43,
-			script = "datical/datical_undeploy",
-			freemarker_context={'deployed': previousDeployed}
-		))
+		# context.addStep(steps.os_script(
+			# description = "Undeploy datical [%s]" % previousDeployed.name,
+			# order = 43,
+			# script = "datical/datical_undeploy",
+			# freemarker_context={'deployed': previousDeployed}
+		# ))
 
 		context.addStep(steps.os_script(
 			description = "Remove project [%s] from server" % previousDeployed.name,
