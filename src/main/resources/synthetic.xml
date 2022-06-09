@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright 2019 XEBIALABS
+    Copyright 2022 XEBIALABS
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -36,15 +36,15 @@
 
 	  <property name="daticalServiceHost" label="Datical Service Hostname" required="false"  category="Datical Service"
                   description="The hostname for Datical Management Console (e.g., dmc.datical.net).\nIf this field is left blank Datical 4 will be used." />
-        <property name="daticalServiceUserName" label="Datical Service Username" required="false" category="Datical Service" 
+        <property name="daticalServiceUserName" label="Datical Service Username" required="false" category="Datical Service"
                   description="The username defined in Datical 5 that is assigned to a project." />
         <property name="daticalServicePassword" label="Datical Service Password" required="false" category="Datical Service" password="true"
                   description="The password for the Datical Service Username."/>
         <property name="daticalServiceClientSecret" label="Datical Service Client Secret" required="false"  category="Datical Service" password="true"
                   description="This is the client secret tied to hammer client configured in Keycloak." />
-        <property name="daticalServiceInstantClientHome" label="Datical Service Instant Client Home" required="false"  category="Datical Service" 
+        <property name="daticalServiceInstantClientHome" label="Datical Service Instant Client Home" required="false"  category="Datical Service"
                   description="Path to where instant client is installed (e.g., C:\apps\Datical5\instantclient)." />
-				  
+
 		<method name="check"
                 delegate="shellScript"
                 host="${thisCi.host}"
@@ -83,9 +83,9 @@
         <property name="genRollbackSQL" label="Generate Rollback SQL"
                   description="When set, a rollback SQL script will be generated in the reports directory."
                   kind="boolean" default="false" required="false" />
-
+        <property name="changeLogLockWaitTimeInMinutes" label="Change Log Lock Wait Time"
+                  kind="integer" required="false" />
     </type>
 
 
 </synthetic>
-
